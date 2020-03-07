@@ -93,13 +93,13 @@ class Aggsv2(list):
 
     def rename_keys(self):
         colmap = {
-                "o": "open",
-                "h": "high",
-                "l": "low",
-                "c": "close",
-                "v": "volume",
-                "t": "timestamp",
-            }
+            "o": "open",
+            "h": "high",
+            "l": "low",
+            "c": "close",
+            "v": "volume",
+            "t": "timestamp",
+        }
 
         return [
             {colmap.get(k, k): v for k, v in tick.items()}
@@ -318,3 +318,43 @@ class Ticker(Entity):
 
 class DailyOpenClose(Entity):
     pass
+
+
+trade_mapping = {
+    "sym": "symbol",
+    "c": "conditions",
+    "x": "exchange",
+    "p": "price",
+    "s": "size",
+    "t": "timestamp"
+}
+
+quote_mapping = {
+    "sym": "symbol",
+    "ax": "askexchange",
+    "ap": "askprice",
+    "as": "asksize",
+    "bx": "bidexchange",
+    "bp": "bidprice",
+    "bs": "bidsize",
+    "c": "condition",
+    "t": "timestamp"
+}
+
+agg_mapping = {
+    "sym": "symbol",
+    "a": "average",
+    "c": "close",
+    "h": "high",
+    "k": "transactions",
+    "l": "low",
+    "o": "open",
+    "t": "totalvalue",
+    "x": "exchange",
+    "v": "volume",
+    "s": "start",
+    "e": "end",
+    "vw": "vwap",
+    "av": "totalvolume",
+    "op": "dailyopen",    # depricated? stream often has 0 for op
+}
